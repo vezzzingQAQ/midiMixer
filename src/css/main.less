@@ -1,0 +1,220 @@
+@headerHeight: 25px;
+@codePanHeight: 30vh;
+@midiPanHeight: 30vh;
+
+@leftPanWidth: 400px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgb(250, 250, 250);
+
+    main {
+        z-index: 1;
+        width: calc(100vw - @leftPanWidth);
+        height: 100vh;
+        position: absolute;
+        left: @leftPanWidth !important;
+    }
+
+    .paintArea {
+        width: calc(100vw - 400px);
+        height: 100vh;
+        position: absolute;
+        left: 400px;
+        top: 0;
+    }
+
+    .leftBar {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: @leftPanWidth;
+        height: 100vh;
+        left: 0;
+        top: 0;
+        z-index: 999;
+        background-color: white;
+
+        .area {
+            width: 100%;
+            outline: 1px solid rgb(200, 200, 200);
+
+            .headerArea {
+                display: block;
+                width: 100%;
+                height: @headerHeight;
+                border-bottom: 1px solid rgb(200, 200, 200);
+                padding-left: 5px;
+                line-height: @headerHeight;
+                background-color: rgb(230, 230, 230);
+                font-size: 13px;
+            }
+
+            .contentArea {
+                width: 100%;
+                height: calc(100% - @headerHeight);
+                position: relative;
+            }
+        }
+
+        .codeArea {
+            height: @codePanHeight;
+
+            .inputArea {
+                display: flexbox;
+                width: 100%;
+                height: calc(70% - 2 * @headerHeight);
+                overflow: hidden;
+            }
+
+            .operationArea {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                height: @headerHeight;
+                background: rgb(255, 255, 255);
+                border-top: 1px solid rgb(200, 200, 200);
+                border-bottom: 1px solid rgb(200, 200, 200);
+                padding-left: 5px;
+
+                .btn {
+                    width: calc(@headerHeight - 5px);
+                    height: calc(@headerHeight - 5px);
+                    line-height: calc(@headerHeight - 5px);
+                    margin-left: 5px;
+                    padding-left: 4px;
+                    border: 1px solid rgb(200, 200, 200);
+                    cursor: pointer;
+                }
+
+                p {
+                    font-size: 13px;
+                }
+
+                #fileInput {
+                    font-size: 13px;
+
+                    &::file-selector-button {
+                        border-radius: 0;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .outputArea {
+                display: block;
+                width: 100%;
+                height: 30%;
+                padding-left: 5px;
+                background: rgb(250, 250, 250);
+                border-bottom: 1px solid rgb(200, 200, 200);
+                overflow: scroll;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                p {
+                    font-size: 13px;
+
+                    &:first-child {
+                        padding-top: 5px;
+                    }
+                }
+            }
+        }
+
+        .midiArea {
+            height: @midiPanHeight;
+
+            .midiOutArea {
+                width: 100%;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: scroll;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                .key {
+                    display: block;
+                    width: 100%;
+                    height: 9px;
+                    outline: 1px solid rgb(200, 200, 200);
+                    display: flex;
+                    flex-direction: row;
+
+                    .sig {
+                        width: 30%;
+                        height: 100%;
+                        border-right: 1px solid rgb(200, 200, 200);
+                        transition: 0.1s ease-in-out;
+                    }
+
+                    .black {
+                        background-color: rgb(100, 100, 100);
+                    }
+
+                    .orange {
+                        background-color: orange !important;
+                    }
+
+                    .value {
+                        width: 0%;
+                        height: 100%;
+                        background-color: rgb(198, 198, 198);
+                        transition: 0.2s ease-in-out;
+                    }
+                }
+
+            }
+        }
+
+        .logArea {
+            height: calc(100vh - @codePanHeight - @midiPanHeight);
+
+            .dataOutArea {
+                width: 100%;
+                height: 100%;
+
+                p {
+                    font-size: 13px;
+                    padding-left: 5px;
+
+                    span {
+                        color: green;
+                    }
+
+                    &:first-child {
+                        padding-top: 5px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 移动端适配
+@media (max-width: 1000px) {
+    body {
+        main {
+            width: calc(100vw - 100px)!important;
+            left: 100px!important;
+        }
+
+        .leftBar {
+            width: 100px!important;
+        }
+    }
+}

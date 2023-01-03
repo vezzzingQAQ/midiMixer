@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIXER</title>
+
+    <script src="./../support/p5.min.js"></script>
+    <script src="./../support/webmidi.min.js"></script>
+    <script src="./../support/box2d-html5.min.js"></script>
+    <script src="./../support/box2d-helper.js"></script>
+    <script src="./../support/toxiclibs.min.js"></script>
+    <script src="./../support/toxichelper.js"></script>
+
+    <script src="./../support/codeMirror/codemirror.js"></script>
+    <link rel="stylesheet" type="text/css" href="./../support/codeMirror/codemirror.css">
+    <link rel="stylesheet" type="text/css" href="./../support/codeMirror/theme/juejin.css">
+    <script src="./../support/codeMirror/addon/edit/closebrackets.js"></script>
+    <script src="./../support/codeMirror/addon/edit/closetag.js"></script>
+    <script src="./../support/codeMirror/addon/edit/matchbrackets.js"></script>
+    <script src="./../support/codeMirror/addon/edit/matchtags.js"></script>
+    <script src="./../support/codeMirror/mode/javascript.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+    <script src="./../src/js/resign.js"></script>
+    <script src="./../src/js/chorStore.js"></script>
+    <script src="./../src/js/drawMidi.js"></script>
+    <script src="./../src/js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="./../src/css/main.css">
+</head>
+
+<body>
+    <div class="paintArea">
+
+    </div>
+    <div class="leftBar">
+        <div class="area codeArea">
+            <div class="headerArea">
+                代码编辑区
+            </div>
+            <div class="contentArea">
+                <div class="operationArea">
+                    <input type="file" id="fileInput">
+                </div>
+                <div class="inputArea">
+                    <textarea id="codeInput"></textarea>
+                </div>
+                <div class="operationArea">
+                    <i class="btn fa fa-play playBtn"></i>
+                    <i class="btn fa fa-file-video-o recordBtn"></i>
+                </div>
+                <div class="outputArea"></div>
+            </div>
+        </div>
+        <div class="area midiArea">
+            <div class="headerArea">
+                钢琴卷帘
+            </div>
+            <div class="contentArea">
+                <div class="midiOutArea"></div>
+            </div>
+        </div>
+        <div class="area logArea">
+            <div class="headerArea">
+                参数输出区
+            </div>
+            <div class="contentArea">
+                <div class="dataOutArea"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
